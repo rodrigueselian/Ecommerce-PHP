@@ -1,0 +1,59 @@
+CREATE TABLE carrinho (
+  clicodig int NOT NULL,
+  procodig int NOT NULL,
+  qtd int NOT NULL
+);
+
+INSERT INTO carrinho (clicodig, procodig, qtd) VALUES
+(1, 1, 1);
+
+
+CREATE TABLE categorias (
+  catcodig serial not NULL,
+  catdescr varchar(100) NOT NULL
+);
+
+INSERT INTO categorias (catcodig, catdescr) VALUES
+(1, 'RPG'),
+(2, 'FPS'),
+(3, 'Adventure');
+
+CREATE TABLE clientes (
+  clicodig serial NOT NULL,
+  clinome varchar(100) NOT NULL,
+  cliemail varchar(255) NOT NULL,
+  clisenha varchar(30) NOT NULL
+);
+
+INSERT INTO clientes (clicodig, clinome, cliemail, clisenha) VALUES
+(1, 'Admin', 'admin@admin.com', '12345'),
+(2, 'Maria', 'maria', '12345'),
+(3, 'Elian', 'teste', '12345'),
+(4, 'Japunes', 'corno', 'thomazio');
+
+CREATE TABLE compras (
+  idcompra int NOT NULL,
+  clicodig int NOT NULL,
+  procodig int NOT NULL,
+  qtd int NOT NULL
+);
+
+CREATE TABLE produtos (
+  procodig serial NOT NULL,
+  pronome varchar(100)  NOT NULL,
+  procateg int NOT NULL,
+  propreco decimal(10,2) NOT NULL,
+  img varchar(100) DEFAULT 'uploads/undefined.jpeg'
+);
+
+INSERT INTO produtos (procodig, pronome, procateg, propreco, img) VALUES
+(1, 'Cyberpunk 2077', 2, '59.99', 'uploads/cyber.jpg'),
+(55, 'Devil may cry 5', 1, '49.99', 'uploads/dmc5.jpg'),
+(56, 'Battlefield V', 2, '19.99', 'uploads/bf5.jpg'),
+(57, 'Dark Souls Remastered', 1, '29.99', 'uploads/dsr.jpg'),
+(58, 'Grand Theft Auto 5', 1, '19.99', 'uploads/gtav.jpg'),
+(59, 'Monster Hunter World', 1, '39.99', 'uploads/mhw.jpg'),
+(60, 'The Wither 3: Wild Hunt', 1, '29.99', 'uploads/tw3.jpg'),
+(61, 'Resident Evil 2', 1, '49.99', 'uploads/re2r.jpg'),
+(62, 'Spider-Man', 3, '39.99', 'uploads/spm.jpg'),
+(63, 'Red Dead Redemption 2', 1, '49.99', 'uploads/rdr2.jpg');
