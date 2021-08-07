@@ -4,10 +4,10 @@
 ?>
 <div id="peg">
     <p class="categtext">Categories</p>
-    <div id="searchbar">
-        <p>Search</p>
+    <div id="searchbar">  
         <form>
-            <input type="text" onkeyup="showResult(this.value)">
+            <label for="search">Search</label>
+            <input name="search" type="text" onkeyup="showResult(this.value)">
         </form>
     </div>
     <div class="categ">

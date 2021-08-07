@@ -1,5 +1,5 @@
 <div id="<?=$jogo['procodig']?>" class="produto">
-    <img src="<?=$jogo['img']?>">
+    <img src="<?=$jogo['img']?>" alt="<?=$jogo['pronome']?>">
     <p><?=$jogo['pronome']?></p>
     <h1>$<?=$jogo['propreco']?></h1>
     <button onclick="addcart(this)">Add to Cart</button>

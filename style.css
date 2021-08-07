@@ -194,7 +194,7 @@ body {
     height: fit-content; 
 }
 
-.home h1 {
+.home h2 {
     font-size: 2em;
     font-weight: bold;
     padding: 1em;
@@ -230,14 +230,14 @@ body {
     border-radius: 5px;
 }
 
-.destaque h2 {
+.destaque p {
     text-align: center;
     font-weight: normal;
     font-size: 1.5em;
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-.destaque p {
+.destaque h1 {
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
@@ -411,16 +411,15 @@ body {
 
 #searchbar {
     width: 70%;
-    justify-content: center;
     text-align: center;
     margin-bottom: 1.5em;
 }
 
-#searchbar P {
+#searchbar label {
     color: white;
     font-weight: bold;
     font-size: 2em;
-    margin-bottom: 8px;
+    
 }
 
 #searchbar input[type=text]{
@@ -430,6 +429,7 @@ body {
     padding-left: 5px;
     border: #71bdd5 2px solid;
     border-radius: 5px;
+    margin-top: 8px;
 }
 
 #searchbar input:focus {

@@ -1,5 +1,5 @@
 <div class="home">
-    <h1>Featured</h1>
+    <h2>Featured</h2>
     <div class="container">
     <?php
         $sql = "select * from produtos order by procodig desc limit 3";

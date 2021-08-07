@@ -1,4 +1,4 @@
-<html>
+<html lang="en-US">
     <head>
         <meta charset="utf-8">
         <title>Loja</title>
@@ -63,7 +63,7 @@
         <div id="janela">
             <button id="fim">Finalizar Compra<button>
         </div>
-        <button id="carrinho"><img src="cart.png"></button>
+        <button name="cart" id="carrinho"><img src="cart.png" alt="cart"></button>
     </body>
     <script src="scripts.js" type="text/javascript"></script>
 </html>
