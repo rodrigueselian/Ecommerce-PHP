@@ -2,12 +2,13 @@
     <img src="<?=$jogo['img']?>">
     <p><?=$jogo['pronome']?></p>
     <h1>$<?=$jogo['propreco']?></h1>
-    <button>Add to Cart</button>
+    <button onclick="addcart(this)">Add to Cart</button>
 </div>
 
 <script>
-    document.getElementById("<?=$jogo['procodig']?>").children[3].addEventListener("click", function(){
-    const prod = document.getElementById("<?=$jogo['procodig']?>").cloneNode(true);
+function addcart(btn){
+    let parent = btn.parentNode;
+    const prod = parent.cloneNode(true)
     const conteudo = prod.children;
     const img = conteudo[0];
     const nome = conteudo[1];
@@ -19,7 +20,7 @@
 
     const div = document.createElement("div");
     div.className = "prodDest"
-    div.id = "<?=$jogo['procodig']?>";
+    div.id = parent.id;
     div.appendChild(img);
     div.appendChild(nome);
     div.appendChild(preco);
@@ -27,5 +28,5 @@
     const dest = document.getElementById("janela");
     dest.appendChild(div);
     console.log(conteudo);
-})
+}
 </script>
