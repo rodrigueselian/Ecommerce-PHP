@@ -496,6 +496,15 @@ body {
     padding-top: 0.3em;
     padding-bottom: 0.3em;
     justify-content: center;
+    min-height: 380px;
+}
+
+#contProd h3 {
+    width: 100%;
+    font-weight: bold;
+    font-size: 2em;
+    text-align: center;
+    align-self: center;
 }
 
 .produto {

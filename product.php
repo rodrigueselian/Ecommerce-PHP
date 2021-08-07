@@ -6,7 +6,7 @@
 </div>
 
 <script>
-document.getElementById("<?=$jogo['procodig']?>").children[3].addEventListener("click", function(){
+    document.getElementById("<?=$jogo['procodig']?>").children[3].addEventListener("click", function(){
     const prod = document.getElementById("<?=$jogo['procodig']?>").cloneNode(true);
     const conteudo = prod.children;
     const img = conteudo[0];
