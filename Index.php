@@ -73,26 +73,26 @@
     {
         if($_REQUEST['reqlogin'] == 'login')
         {
-           $login = $_POST['login'];
-           $senha = $_POST['senha'];
-    
-           $sql = "SELECT cliemail, clisenha from clientes where cliemail = '$login' and clisenha = '$senha'";
-           $resultado = fazConsulta($sql);
-           if($resultado[0]['cliemail'] == $login && $resultado[0]['clisenha'] == $senha)
-           $_SESSION['usuario'] = $resultado[0]['cliemail'];
-           else
-           echo("Usuario ou Senha Invalidos!"); // trocar por um alert??
-           header("Location: index.php");
-
-        }
-
+            $login = $_POST['login'];
+            $senha = $_POST['senha'];
+        
+            $sql = "SELECT * from clientes where cliemail = '$login'";
+            $resultado = fazConsulta($sql);
+            if(password_verify($senha, $resultado[0]['clisenha'])){
+                $_SESSION['clicodig'] = $resultado[0]['clicodig'];
+                $_SESSION['usuario'] = $resultado[0]['cliemail'];
+                header('location: index.php');
+            }
+            var_dump($resultado);
+        }      
+        
         if($_REQUEST['reqlogin'] == 'register')
         {
             $nome = $_POST['nome'];
             $login = $_POST['login'];
             $senha = $_POST['senha'];
-        
-            $sql = "INSERT INTO clientes (clinome, cliemail, clisenha) VALUES ('$nome', '$login', '$senha')";
+            $senhac = password_hash($senha, PASSWORD_DEFAULT);
+            $sql = "INSERT INTO clientes (clinome, cliemail, clisenha) VALUES ('$nome', '$login', '$senhac')";
             $resultado = fazConsulta($sql);
         }
 
