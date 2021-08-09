@@ -66,23 +66,42 @@
 
             if(isset($_REQUEST['addp']))
             {
+                require_once('config_upload.php');
                 $nome = $_REQUEST['nomep'];
                 $cat = $_REQUEST['cat'];
                 $preco = $_REQUEST['preco'];
-                $img = "uploads/";
-                $img .= $_REQUEST['img'];
-                $sql = "insert into produtos (pronome,procateg,propreco,img) values ('$nome','$cat','$preco','$img')";
-                $nada = fazConsulta($sql);
+                $nome_arquivo = $_FILES['image']['name'];  
+                $tamanho_arquivo = $_FILES['image']['size']; 
+                $arquivo_temporario = $_FILES['image']['tmp_name']; 
+                if (!empty($nome_arquivo)){
+                    if($sobrescrever=="não" && file_exists("$caminho/$nome_arquivo"))
+                    die("Arquivo já existe");
+
+                    if($limitar_tamanho=="sim" && ($tamanho_arquivo > $tamanho_bytes))  
+                        die("Arquivo deve ter o no máximo $tamanho_bytes bytes");
+
+                    $ext = strrchr($nome_arquivo,'.');
+                    if (($limitar_ext == "sim") && !in_array($ext,$extensoes_validas))
+                        die("Extensão de arquivo inválida para upload");
+
+                    if (move_uploaded_file($arquivo_temporario, "uploads/$nome_arquivo")) {
+                        echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
+                        $arquivo = 'uploads/' . $nome_arquivo;
+                        $sql = "insert into produtos (pronome,procateg,propreco,img) values ('$nome','$cat','$preco','$arquivo')";
+                        $resultado = fazConsulta($sql);
+                    }
+                }
+                
             }     
         ?>
         <div id='addprod'>
             <img src="unknown.jpg" alt="naotem">
                 <button id="closeAddProd">X</button>
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     Nome:<br/><input required type="text" name="nomep" placeholder="nome do jogo"><br>
                     Categoria:<br/><input required type="text" name="cat" placeholder="numero"><br>
                     Preço:<br/><input required type="text" name="preco" placeholder="decimal '11.2'"><br>
-                    Img:<br/><input required type="text" name="img" placeholder="nome img no dir"><br>
+                    image:<br/><input type="file" name="image" id="image"><br>
                     <input type="submit" name='addp'>
                 </form>
         </div>
