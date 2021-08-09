@@ -1,5 +1,4 @@
 Carrinho guardar itens em variavel de sessão
-Pesquisa (ajax)
 Email
 Criptografia
 Upload
@@ -8,9 +7,3 @@ responisividade
 
 extra
 paginação
-
-variavel de comparação
-se pesquisa antiga = texto atual (nao houve mudança)
-	lança função de busca
-se não
-	end

@@ -7,7 +7,7 @@
     <div id="searchbar">  
         <form>
             <label for="search">Search</label>
-            <input name="search" type="text" onkeyup="showResult(this.value)">
+            <input name="search" id="search" type="text" onkeyup="showResult(this.value)">
         </form>
     </div>
     <div class="categ">
