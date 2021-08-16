@@ -1,12 +1,12 @@
 <div id="<?=$jogo['procodig']?>" class="produto">
-<?php
-    if(isset($_SESSION['usuario'])){
-        if($_SESSION['usuario'] == "admin@admin.com"){
-            echo("<button onclick='edit(this)'>edit</button>
-            <button onclick='del(this)'>delete</button>");
+    <?php
+        if(isset($_SESSION['usuario'])){
+            if($_SESSION['usuario'] == "admin@admin.com"){
+                echo("<button onclick='edit(this)'>edit</button>
+                <button onclick='del(this)'>delete</button>");
+            }
         }
-    }
-?>
+    ?>
     <img src="<?=$jogo['img']?>" alt="<?=$jogo['pronome']?>">
     <p><?=$jogo['pronome']?></p>
     <h1>$<?=$jogo['propreco']?></h1>
