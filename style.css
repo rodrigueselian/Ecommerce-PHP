@@ -539,7 +539,9 @@ body {
 #addprod {
     width: 80%;
     height: 60%;
-    display: none;
+    opacity: 0;
+    visibility: hidden;
+    display: flex;
     position: fixed;
     background-color: #DDDDDD;
     box-shadow: 0px 0px 3px 4px #71bdd5;
@@ -550,6 +552,12 @@ body {
     border-radius: 5px;
     font-size: 1.2em;
     font-weight: bold;
+}
+
+#addprod.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear;
 }
 
 #addprod img {
@@ -579,7 +587,9 @@ body {
     transition: box-shadow 0.3s linear;
 }
 
-#addprod input[type=submit] {
+#addprod button {
+    height: 2em;
+    border-radius: 4px;
     background-color: tomato;
     color: black;
     font-weight: bold;
@@ -587,13 +597,13 @@ body {
     cursor: pointer;
 }
 
-#addprod input[type=submit]:hover {
+#addprod button:hover {
     background-color: green;
     color: white;
     transition: all 0.2s linear;
 }
 
-#closeAddProd {
+.close {
     position: absolute;
     top: 0;
     right: 0;
@@ -604,6 +614,149 @@ body {
     border-radius: 5px;
     outline: none;
     cursor: pointer;
+}
+
+#editpop {
+    opacity: 0;
+    visibility: hidden;
+    width: 80%;
+    height: 60%;
+    position: fixed;
+    background-color: #DDDDDD;
+    box-shadow: 0px 0px 3px 4px #71bdd5;
+    padding: 1em;
+    top: 20%;
+    left: 10%;
+    display: flex;
+    justify-content: flex-end;
+    border-radius: 5px;
+    font-size: 1.2em;
+    font-weight: bold;
+    transition: width 2s;
+}
+
+#editpop img {
+    margin: 3px;
+    border: black 2px solid;
+}
+
+#editpop form{
+    margin-left: 4px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#editpop input {
+    border: 2px solid #71bdd5;
+    border-radius: 5px;
+    height: 10%;
+    width: 100%;
+    margin: 2px;
+    padding-left: 5px;
+}
+
+#editpop input:focus {
+    box-shadow: #71bdd5 0px 0px 0px 2px;
+    transition: box-shadow 0.3s linear;
+}
+
+#editpop button {
+    height: 2em;
+    border-radius: 4px;
+    background-color: tomato;
+    color: black;
+    font-weight: bold;
+    border: 1.5px solid blue;
+    cursor: pointer;
+}
+
+#editpop button:hover {
+    background-color: green;
+    color: white;
+    transition: all 0.2s linear;
+}
+
+#editpop.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear;
+}
+
+#deletepop {
+    opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 500px;
+    height: 120px;
+    padding: 0.5em;
+    background-color: #3D2485;
+    box-shadow: 0px 0px 3px 4px #71bdd5;
+    top: 50%;
+    left: 50%;
+    margin-top: -100px;
+    margin-left: -250px;
+    border-radius: 5px;
+    transition: width 2s;
+}
+
+#deletepop p {
+    width: 100%;
+    text-align: center;
+    margin: 1em;
+    color: white;
+    font-weight: bold;
+}
+
+#uselessform {
+    width: 49%;
+    display: flex;
+    flex-flow: column-reverse;
+    align-items: center;
+}
+
+#button {
+    width: 90%;
+    height: 70%;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 4px;
+}
+
+.sim {
+    width: 100%;
+    background-color: rgb(0, 170, 0);
+    border: 2px solid rgb(0, 100, 0);
+}
+
+.sim:hover {
+    background-color: rgb(0, 200, 0);
+    border-color: rgb(0, 170, 0);
+    transition: all 0.2s linear;
+}
+
+.nao {
+    background-color: rgb(205, 0, 0);
+    border: 2px solid rgb(100, 0, 0);
+}
+
+.nao:hover {
+    background-color: rgb(255, 0, 0);
+    border-color: rgb(205, 0, 0);
+    transition: all 0.2s linear;
+}
+
+#deletepop.active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.5s linear;
 }
 
 .produto img {

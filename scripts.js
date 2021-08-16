@@ -2,8 +2,22 @@ var bar = document.getElementById('navbar').children;
 var local = window.location.hash;
 var num = 0;
 
-
 var swit = 0;
+
+function x(btn){
+    let dad = btn.parentNode;
+    if (dad.classList.contains('active')) {
+        dad.classList.remove('active');
+    } else {
+        dad.parentNode.classList.remove('active');
+    }
+}
+
+function addp(){
+    document.getElementById("addprod").classList.add("active");
+}
+
+//arruma isso depois pelo amor de deus aehuehuueha
 document.getElementById("carrinho").addEventListener("click", function(){
     if(swit === 1)
     {
