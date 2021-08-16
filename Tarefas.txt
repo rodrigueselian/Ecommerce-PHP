@@ -1,9 +1,10 @@
-Carrinho guardar itens em variavel de sessão
-Email
-Criptografia
-Upload
-
 responisividade
+
+Carrinho guardar itens em variavel de sessão
+update e delete dos produtos
+search sem nada mostrar todos produtos
 
 extra
 paginação
+input do preço fazer a pontuação dos centavos automaticamente
+add image preview?

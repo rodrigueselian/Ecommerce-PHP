@@ -159,6 +159,7 @@ body {
 }
   
 #navbar {
+    padding: 1em;
     display: flex;
     flex-direction: row;
     width: 100%;
@@ -643,16 +644,47 @@ body {
     transition: color 0.2s linear;
 }
 
+@media screen and (max-width: 1100px) {
+    #contProd {
+        grid-template-columns: 49% 49%;
+    }
+    #peg p {
+        font-size: 1em;
+    }
+    #peg label {
+        font-size: 1em;
+    }
+}
+
 @media screen and (max-width: 800px) {
     #navbar {
+        padding-top: 0.5em;
         flex-direction: column;
+        height: 35%;
     }
     .container {
         flex-direction: column;
         justify-content: center;
         height: auto;
     }
+    .destaque {
+        width: 90%;
+        margin: auto;
+        margin-bottom: 1em;
+    }
+    body {
+        margin-left: 8em;
+        margin-right: 8em;
+    }
+    #contProd {
+        grid-template-columns: 90%;
+    }
+    .categ a {
+        font-size: 0.6em;
+        font-weight: bold;
+    }
 }
+
 
 #contact {
     box-shadow: 0px 0px 3px 4px #71bdd5;
