@@ -1,8 +1,5 @@
 responisividade
-
 Carrinho guardar itens em variavel de sessão
-update e delete dos produtos
-search sem nada mostrar todos produtos
 
 extra
 paginação

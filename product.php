@@ -1,5 +1,6 @@
 <div id="<?=$jogo['procodig']?>" class="produto">
     <?php
+        @session_start();
         if(isset($_SESSION['usuario'])){
             if($_SESSION['usuario'] == "admin@admin.com"){
                 echo("<button onclick='edit(this)'>edit</button>
@@ -57,10 +58,7 @@ function edit(btn){
     console.log(form.value);
     document.getElementById("editpop").classList.add("active");
 }
-function myJavascriptFunction() { 
-  var javascriptVariable = "John";
-  
-}
+
 function del(btn){
     parent = btn.parentNode;
     gameid = parent.id

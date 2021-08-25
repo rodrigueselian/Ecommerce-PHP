@@ -93,7 +93,33 @@
                 }
         ?>
         <div class="footer">
-            <p>Site feito por mim > Elian Rodrigues</p>
+            <div>
+                <h1>About us</h1>
+                <h2>Address</h2>
+                <p>example lorem ipsum blabla</p>
+                <h2>CNPJ</h2>
+                <p>99.999.999/9999-99</p>
+                <h2>Email</h2>
+                <p>rodrigues.elian@yahoo.com</p>
+            </div>
+            <div>
+                <h1>Contact</h1>
+                <h2>Socials</h2>
+                <ul>
+                    <li><a href="https://www.facebook.com/elian.rodrigues.18/">Facebook</a></li>
+                    <li><a href="https://github.com/rodrigueselian/">Github</a></li>
+                    <li><a href="https://www.linkedin.com/in/elian-rodrigues-108346143/">LinkedIn</a></li>
+                </ul>
+            </div>
+            <div>
+                <h1>Useful Info</h1>
+                <h2>Terms</h2>
+                <ul>
+                    <li><a href="#/">Privacy</a></li>
+                    <li><a href="#">Policy</a></li>
+                    <li><a href="#">Refund</a></li>
+                </ul>
+            </div>
         </div>
         <div id="janela">
             <button id="fim">Finalizar Compra<button>

@@ -1,6 +1,71 @@
 <?php
     $sql = "select * from categorias";
     $categorias = fazConsulta($sql);
+
+            if(isset($_REQUEST['addp']))
+            {
+                require_once('config_upload.php');
+                $nome = $_REQUEST['nomep'];
+                $cat = $_REQUEST['cat'];
+                $preco = $_REQUEST['preco'];
+                $nome_arquivo = $_FILES['image']['name'];  
+                $tamanho_arquivo = $_FILES['image']['size']; 
+                $arquivo_temporario = $_FILES['image']['tmp_name']; 
+                if (!empty($nome_arquivo)){
+                    if($sobrescrever=="não" && file_exists("$caminho/$nome_arquivo"))
+                    die("Arquivo já existe");
+
+                    if($limitar_tamanho=="sim" && ($tamanho_arquivo > $tamanho_bytes))  
+                        die("Arquivo deve ter o no máximo $tamanho_bytes bytes");
+
+                    $ext = strrchr($nome_arquivo,'.');
+                    if (($limitar_ext == "sim") && !in_array($ext,$extensoes_validas))
+                        die("Extensão de arquivo inválida para upload");
+
+                    if (move_uploaded_file($arquivo_temporario, "uploads/$nome_arquivo")) {
+                        echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
+                        $arquivo = 'uploads/' . $nome_arquivo;
+                        $sql = "insert into produtos (pronome,procateg,propreco,img) values ('$nome','$cat','$preco','$arquivo')";
+                        $resultado = fazConsulta($sql);
+                    }
+                }
+            }
+
+            if(isset($_REQUEST['editprod'])){
+                $gameid = $_REQUEST['editprod'];
+                require_once('config_upload.php');
+                $nome = $_REQUEST['nomep'];
+                $cat = $_REQUEST['cat'];
+                $preco = $_REQUEST['preco'];
+                $nome_arquivo = $_FILES['image']['name'];  
+                $tamanho_arquivo = $_FILES['image']['size']; 
+                $arquivo_temporario = $_FILES['image']['tmp_name']; 
+                if (!empty($nome_arquivo)){
+                    if($sobrescrever=="não" && file_exists("$caminho/$nome_arquivo"))
+                    die("Arquivo já existe");
+
+                    if($limitar_tamanho=="sim" && ($tamanho_arquivo > $tamanho_bytes))  
+                        die("Arquivo deve ter o no máximo $tamanho_bytes bytes");
+
+                    $ext = strrchr($nome_arquivo,'.');
+                    if (($limitar_ext == "sim") && !in_array($ext,$extensoes_validas))
+                        die("Extensão de arquivo inválida para upload");
+
+                    if (move_uploaded_file($arquivo_temporario, "uploads/$nome_arquivo")) {
+                        echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
+                        $arquivo = 'uploads/' . $nome_arquivo;
+                        $sql = "UPDATE produtos set pronome='$nome', procateg='$cat', propreco='$preco', img='$arquivo' where procodig='$gameid'";
+                        $resultado = fazConsulta($sql);
+                    }
+                }
+            }
+
+            if(isset($_REQUEST['deleteprod'])){
+                $gameid = $_REQUEST['deleteprod'];
+                $sql = "delete from produtos where procodig='$gameid'";
+                fazConsulta($sql);
+                header('location: index.php');
+            }
 ?>
 <div id="peg">
     <p class="categtext">Categories</p>
@@ -75,36 +140,7 @@
                     <button type="submit" name='addp'>Add Product</button>
                 </form>
         </div>
-        <?php
-            if(isset($_REQUEST['addp']))
-            {
-                require_once('config_upload.php');
-                $nome = $_REQUEST['nomep'];
-                $cat = $_REQUEST['cat'];
-                $preco = $_REQUEST['preco'];
-                $nome_arquivo = $_FILES['image']['name'];  
-                $tamanho_arquivo = $_FILES['image']['size']; 
-                $arquivo_temporario = $_FILES['image']['tmp_name']; 
-                if (!empty($nome_arquivo)){
-                    if($sobrescrever=="não" && file_exists("$caminho/$nome_arquivo"))
-                    die("Arquivo já existe");
-
-                    if($limitar_tamanho=="sim" && ($tamanho_arquivo > $tamanho_bytes))  
-                        die("Arquivo deve ter o no máximo $tamanho_bytes bytes");
-
-                    $ext = strrchr($nome_arquivo,'.');
-                    if (($limitar_ext == "sim") && !in_array($ext,$extensoes_validas))
-                        die("Extensão de arquivo inválida para upload");
-
-                    if (move_uploaded_file($arquivo_temporario, "uploads/$nome_arquivo")) {
-                        echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
-                        $arquivo = 'uploads/' . $nome_arquivo;
-                        $sql = "insert into produtos (pronome,procateg,propreco,img) values ('$nome','$cat','$preco','$arquivo')";
-                        $resultado = fazConsulta($sql);
-                    }
-                }
-            }
-        ?>
+        
         <div id="editpop">
             <img src="unknown.jpg" alt="naotem">
             <button class="close" onclick='x(this)'>X</button>
@@ -116,36 +152,7 @@
                 <button type="submit" name='editprod' value='0'>Update</button>
             </form>
         </div>
-        <?php
-            if(isset($_REQUEST['editprod'])){
-                $gameid = $_REQUEST['editprod'];
-                require_once('config_upload.php');
-                $nome = $_REQUEST['nomep'];
-                $cat = $_REQUEST['cat'];
-                $preco = $_REQUEST['preco'];
-                $nome_arquivo = $_FILES['image']['name'];  
-                $tamanho_arquivo = $_FILES['image']['size']; 
-                $arquivo_temporario = $_FILES['image']['tmp_name']; 
-                if (!empty($nome_arquivo)){
-                    if($sobrescrever=="não" && file_exists("$caminho/$nome_arquivo"))
-                    die("Arquivo já existe");
 
-                    if($limitar_tamanho=="sim" && ($tamanho_arquivo > $tamanho_bytes))  
-                        die("Arquivo deve ter o no máximo $tamanho_bytes bytes");
-
-                    $ext = strrchr($nome_arquivo,'.');
-                    if (($limitar_ext == "sim") && !in_array($ext,$extensoes_validas))
-                        die("Extensão de arquivo inválida para upload");
-
-                    if (move_uploaded_file($arquivo_temporario, "uploads/$nome_arquivo")) {
-                        echo " Upload do arquivo: ". $nome_arquivo." foi concluído com sucesso <br>";
-                        $arquivo = 'uploads/' . $nome_arquivo;
-                        $sql = "UPDATE produtos set pronome='$nome', procateg='$cat', propreco='$preco', img='$arquivo' where procodig='$gameid'";
-                        $resultado = fazConsulta($sql);
-                    }
-                }
-            }
-        ?>
         <div id="deletepop">
             <p>tem certeza que quer deletar este jogo?</p>
             <form method="POST" id="uselessform">
@@ -155,14 +162,7 @@
                 <button id="button" class="nao" onclick="x(this)">Não</button>
             </div>
         </div>
-        <?php
-            if(isset($_REQUEST['deleteprod'])){
-                $gameid = $_REQUEST['deleteprod'];
-                $sql = "delete from produtos where procodig='$gameid'";
-                fazConsulta($sql);
-                header('location: index.php');
-            }
-        ?>
+        
         <script>
             function showResult(str) {
                 

@@ -267,18 +267,55 @@ body {
 .footer {
     width: 100%;
     background-color: #3D2485;
-    height: 4.5em;
+    height: fit-content;
     color: white;
     box-shadow: 0px 0px 3px 4px #71bdd5;
     border-radius: 5px;
     margin-top: 3em;
     padding: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer ul {
+    list-style-type: none;
+}
+
+.footer li {
+    margin-top: 8px;
+    margin-bottom: 12px;
+}
+
+.footer h1 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 1.5em;
+    color: white;
+    font-weight: 900;
+    margin-bottom: 0.4em;
+    margin-right: 5em;
+}
+
+.footer h2 {
+    font-size: 1.1em;
+    margin-left: 2em;
+    font-weight: 600;
 }
 
 .footer p {
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 17px;
+    font-weight: 300;
+    margin-left: 3.6em;
+    margin-bottom: 0.4em;
+}
+
+.footer a {
+    padding: 2px;
+    border: 2px solid black;
+    border-radius: 4px;
+    margin-bottom: 1em;
+    font-weight: 500;
+    margin-left: 3.6em;
     color: white;
+    text-decoration: none
 }
 
 #janela {
@@ -291,13 +328,13 @@ body {
     right: 0;
     margin: 5em;
     background-color: #3D2485;
-    box-shadow: 0px 0px 2px 3px #71bdd5;
-    overflow: scroll;
+    box-shadow: 0px 0px 3px 3px #71bdd5;
+    overflow-y: scroll;
+    padding-bottom: 2em;
 }
 
 #fim {
-    bottom: 0;
-    left: 0;
+    position: fixed;
     height: 2em;
     width: 15em;
     margin: 6px;
@@ -305,6 +342,9 @@ body {
     background-color: tomato;
     border-radius: 5px;
     font-weight: bold;
+    float: left;
+    bottom: 80;
+    right: 226;
 }
 
 #fim:hover {
@@ -316,7 +356,8 @@ body {
 }
 
 .prodDest {
-    margin-top: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
